@@ -21,7 +21,7 @@ class Blog(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
-        self.create_date = datetime.date.utcnow()
+        self.create_date = datetime.datetime.utcnow()
 
     def is_valid(self):
         if self.title and self.body and self.create_date:
