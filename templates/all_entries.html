@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1 style="text-align:center">Build A Blog</h1>
+  <h1 style="text-align:center">All Entries</h1>
   <ul>
-    {% for blog in all_entries %}
+    {% for blog in blogs %}
       <li>
         <h2>
-          <a href='/blog?id={{ blog.id }}'>{{ blog.title }}</a>
+          <a href='/blog?blog_id={{ blog.id }}'>{{ blog.title }}</a>
         </h2>
         <p>{{ blog.body }}</p>
         <p>{{ blog.create_date }}</p>
+        <h3>
+          <a href='/blog?user={{ blog.owner.username }}'>{{ blog.owner.username }}</a>
+        </h3>
       </li>
     {% endfor %}
   </ul>
